@@ -105,8 +105,10 @@ public class Main {
 		
 		// Load the graph
 		Graph graph = null;
+		Graph graph_copy = null;
 		try {
 			graph = Main.loadGraph(args[0]);
+			graph_copy = Main.loadGraph(args[0]);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 			System.exit(-1);
@@ -122,7 +124,7 @@ public class Main {
 
 		// Write the edges in the file: only the forward links
 		try {
-			writeGraph(sorted, graph, args[1]);
+			writeGraph(sorted, graph_copy, args[1]);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 			System.exit(-1);
